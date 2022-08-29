@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   root to: "pages#home"
+  resources :items
 end
