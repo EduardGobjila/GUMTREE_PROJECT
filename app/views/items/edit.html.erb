@@ -4,7 +4,7 @@
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :price %>
-    <%= f.input :category, collection: LIST::CATEGORIES %>
+    <%= f.input :category, collection: Item::CATEGORIES %>
     <%= f.submit class: 'btn btn-success text-white' %>
   <% end %>
 

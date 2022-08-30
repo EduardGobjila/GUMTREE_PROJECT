@@ -36,6 +36,12 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @item = item.find(params[:id])
+    @item.destroy
+    redirect_to items_path, notice: 'Post was successfully destroyed.', status: :see_other
+  end
+
   private
 
   #  Using strong Params --ED
