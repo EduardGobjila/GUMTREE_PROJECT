@@ -14,48 +14,45 @@
    </div>
 
    <div class="index-div">
-   <%# make login to show total ads and category name %>
-    <p><strong>Search in: <%= @items.length %> ads</p>
-      <div class="flex-button-right">
-      <%# make link to sort the items by price, location, most recent etc %>
-        <%=link_to "Filter by", "#", class: "filter-btn", style: "text-decoration: none;" %>
+    <p><%= @items.length %> total ads matching your search criteria</p>
+      <div>
+        <select aria-labelledby="refine-sortlabel" name="sort" data-q="srp-sort">
+          <option value="date">Most recent first</option>
+          <option value="price_lowest_first">Price: Low to High</option>
+          <option value="price_highest_first">Price: High to Low</option>
+          <option value="distance">Nearest first</option>
+        </select>
       </div>
    </div>
-
     <%# add image location source%>
-
-    <% @items.each do |item| %>
+  <%# <div class="body-flex"> %>
+      <% @items.each do |item| %>
       <div class="card-product">
-
-       <% if item.photos.attached? %>
-      <% item.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-      <% else %>
-       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <% if item.photos.attached? %>
+        <% item.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
         <% end %>
-            <div class="card-product-infos">
-              <h2><%= item.name%></h2>
-              <p><%= item.description %></p>
-              <p><%= item.price %></p>
-              <%= link_to 'See More', item, class: 'btn btn-danger text-white'%>
-            </div>
+          <% else %>
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <% end %>
 
-      <%# implementing photo display -- RORY%>
-
+        <div class="card-product-infos">
+          <div>
+            <h2><%= item.name%></h2>
+            <h4><%= item.location%></h4>
+            <p><%= item.description %></p>
+          </div>
+          <div>
+            <i class="fa-solid fa-thumbs-up"></i>
+            <p>£<%=item.price %></p>
+          </div>
+     <%# <%= link_to 'See More', item, class: 'btn btn-danger text-white' %>
+        </div>
+      </div>
+  </div>
 
       </div>
     <% end %>
-    <%# this is an example only - can be deleted later %>
-    <div class="card-product">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2>Product name</h2>
-        <p>Product description with <strong>relevant info</strong> only.</p>
-      </div>
-    </div>
-
-
   </div>
 </body>
 </html>
