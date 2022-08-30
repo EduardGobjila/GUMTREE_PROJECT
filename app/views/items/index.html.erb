@@ -23,16 +23,16 @@
    </div>
 
     <%# add image location source%>
-    <div class="card-product">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <% @items.each do |item| %>
-          <h2><%= item.name %></h2>
-          <p><%= item.description %></p>
-          <%= item.price %>
-        <% end %>
+    <% @items.each do |item| %>
+      <div class="card-product">
+       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+            <h2><%= item.name %></h2>
+            <p><%= item.description %></p>
+            <%= item.price %>
+        </div>
       </div>
-    </div>
+    <% end %>
     <%# this is an example only - can be deleted later %>
     <div class="card-product">
     <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
