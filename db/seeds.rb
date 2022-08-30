@@ -7,6 +7,11 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require "faker"
 
+"cleaning database"
+
+User.destroy_all
+Item.destroy_all
+
 puts "creating 10 users"
 
 10.times do
