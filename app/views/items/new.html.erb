@@ -4,6 +4,8 @@
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :price %>
+    <%= f.input :phone %>
+    <%= f.input :location %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.input :category, collection: Item::CATEGORIES %>
     <%= f.submit class: 'btn btn-primary text-white' %>
