@@ -18,7 +18,9 @@ puts "creating 10 users"
   User.create!(
     email: Faker::Internet.email,
     username: Faker::Name.name,
-    password: "password"
+    password: "password",
+    phone: Faker::PhoneNumber.extension.to_i,
+    location: Faker::Address.street_name
   )
 end
 
