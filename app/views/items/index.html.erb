@@ -16,9 +16,9 @@
    <div class="index-div">
    <%# make login to show total ads and category name %>
     <p><strong>Search in: <%= @items.length %> ads</p>
-      <div>
+      <div class="flex-button-right">
       <%# make link to sort the items by price, location, most recent etc %>
-        <%=link_to "Filter by", "#", class: "filter-btn" %>
+        <%=link_to "Filter by", "#", class: "filter-btn", style: "text-decoration: none;" %>
       </div>
    </div>
 
