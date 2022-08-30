@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
    @item = Item.new
   end
 
-  #  Creating a new card or item --ED
+  #  Creating a new card or item --ED, adding image -- RORY
   def create
     @item = Item.new(item_params)
     @item.user = current_user
@@ -40,6 +40,6 @@ class ItemsController < ApplicationController
 
   #  Using strong Params --ED
   def item_params
-    params.require(:item).permit(:name, :description, :price, :category)
+    params.require(:item).permit(:name, :description, :price, :photos, :category)
   end
 end
