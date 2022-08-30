@@ -1,2 +1,27 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Show Page</title>
+</head>
+<header>
+  <div class="hedaer-div">
+    <h1 class="show-page-h"><%= @item.name %></h1>
+  </div>
+</header>
+<body>
+  <div class="body-div-show">
+    <div>
+      <h2><%= @item.description %></h2>
+      <p><%= @item.price %></p>
+      <p><%= @item.category %></p>
+    </div>
+    <div>
+      <% @users = User.find(params[:id]) %>
+        <%= @users.email %>
+    </div>
+  </div>
+</body>
+</html>
