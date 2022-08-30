@@ -18,19 +18,21 @@
     <p><strong>Search in: <%= @items.length %> ads</p>
       <div>
       <%# make link to sort the items by price, location, most recent etc %>
-        <%=link_to "sort by", "#", class: "filter-btn" %>
+        <%=link_to "Filter by", "#", class: "filter-btn" %>
       </div>
    </div>
 
     <%# add image location source%>
+
     <% @items.each do |item| %>
       <div class="card-product">
-       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-product-infos">
-            <h2><%= item.name %></h2>
-            <p><%= item.description %></p>
-            <%= item.price %>
-        </div>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-product-infos">
+              <h2><%= item.name%></h2>
+              <p><%= item.description %></p>
+              <p><%= item.price %></p>
+              <%= link_to 'See More', item, class: 'btn btn-danger text-white'%>
+            </div>
       </div>
     <% end %>
     <%# this is an example only - can be deleted later %>

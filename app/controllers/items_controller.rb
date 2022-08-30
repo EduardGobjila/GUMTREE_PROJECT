@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id]) # ITEM not ITEMS we are referring to the model name!!!!!
+    @item = Item.find(params[:id])
   end
 
   # Edit a new item or card --ED
