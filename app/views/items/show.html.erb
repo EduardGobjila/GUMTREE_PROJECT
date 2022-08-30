@@ -23,7 +23,7 @@
         <%= link_to 'Edit', edit_item_path, class: 'btn btn-success text-white', style: 'margin: 10px;' %>
         <%= link_to 'Delete', @item , data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } , class: 'btn btn-danger text-white', style: 'margin: 10px;' %>
       <% else %>
-      <p>false</p>
+        <a href="#" class="btn btn-success text-white" style="margin-bottom: 10px;">Purchase</a>
       <% end %>
     </div>
   </div>
