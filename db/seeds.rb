@@ -7,15 +7,24 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require "faker"
 
-puts ""
+puts "creating 10 users"
+
+10.times do
+  User.create!(
+    email: Faker::Internet.email,
+    username: Faker::Name.name,
+    password: "password"
+  )
+end
 
 puts "creating 50 items"
 50.times do
   Item.create!(
     name: Faker::Commerce.product_name,
-    category: Faker::Commerce.department,
+    category: Item::CATEGORIES.sample,
     price: Faker::Commerce.price.to_f,
-    description: Faker::Commerce.brand
+    description: Faker::Commerce.brand,
+    user_id: rand(1..10)
   )
 end
 puts "finished"
