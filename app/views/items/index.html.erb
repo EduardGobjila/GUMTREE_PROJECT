@@ -25,7 +25,12 @@
     <%# add image location source%>
     <% @items.each do |item| %>
       <div class="card-product">
+      <%# implementing photo display -- RORY%>
+      <%# <% if item.photo.attached? %>
+      <%# <%= cl_image_tag item.photo.key, height: 300, width: 400, crop: :fill  %>
+      <%# <% else %>
        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+       <%# <% end %>
         <div class="card-product-infos">
             <h2><%= item.name %></h2>
             <p><%= item.description %></p>
