@@ -5,6 +5,8 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @user_id = @item.user_id
+    @user = User.find(@user_id)
   end
 
   # Edit a new item or card --ED
