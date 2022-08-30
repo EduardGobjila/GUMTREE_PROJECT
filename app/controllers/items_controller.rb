@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
   #  Creating a new card or item --ED
   def create
     @item = Item.new(item_params)
-    @item.user_id = current_user
+    @item.user = current_user
     if @item.save
       redirect_to items_index_path
     else
@@ -40,6 +40,6 @@ class ItemsController < ApplicationController
 
   #  Using strong Params --ED
   def item_params
-    params.require(:items).permit(:name, :description, :price, :category)
+    params.require(:item).permit(:name, :description, :price, :category)
   end
 end
