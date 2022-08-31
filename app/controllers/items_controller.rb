@@ -47,8 +47,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user = current_user
-    raise
-    if @item.save!
+    if @item.save
       redirect_to item_path(@item)
     else
       render :new, stauts: :unprocessable_entity
@@ -65,6 +64,6 @@ class ItemsController < ApplicationController
 
   #  Using strong Params --ED
   def item_params
-    params.require(:item).permit(:name, :description, :price, :category, photos: [])
+    params.require(:item).permit(:name, :description, :price, :category, :location, photos: [])
   end
 end
