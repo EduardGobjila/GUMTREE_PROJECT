@@ -16,12 +16,22 @@
     <div>
         <div class="show-page-photo">
         <% if @item.photos.attached?%>
-          <% @item.photos.each do |item| %>
+
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
+          <ol class="carousel-indicators">
+    <% @item.photos.each_with_index do |image, index| %>
+    <li data-target="#carouselExampleControls" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
+  <% end %>
+  </ol>
+  <div class="carousel-inner" role="listbox">
     <div class="carousel-item active">
-      <img class="d-block w-100" src= <% cl_image_tag item.key%> alt="First slide">
+
+     <% @item.photos.each_with_index do |image, index| %>
+    <div class="item <%= index == 0 ? 'active' : '' %>">
+      <%= cl_image_tag image.key %>
+  <% end %>
     </div>
+
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
@@ -32,7 +42,7 @@
   </a>
 </div>
             <%# <%= cl_image_tag item.key %>
-          <% end %>
+
         <% else %>
           <img src="https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg", height="400", width= "300">
         <% end %>
