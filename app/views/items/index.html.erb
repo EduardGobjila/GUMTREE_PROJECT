@@ -29,9 +29,7 @@
       <% @items.each do |item| %>
       <div class="card-product">
         <% if item.photos.attached? %>
-        <% item.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-        <% end %>
+        <%= cl_image_tag item.photos.first.key, height: 300, width: 400, crop: :fill %>
           <% else %>
             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <% end %>
@@ -43,7 +41,7 @@
             <p><%= item.description %></p>
           </div>
           <div>
-            <i class="fa-solid fa-thumbs-up"></i>
+            <i class="fa-solid fa-thumbs-up" style="padding-left: 50px;"></i>
             <p>£<%=item.price %></p>
           </div>
      <%# <%= link_to 'See More', item, class: 'btn btn-danger text-white' %>
