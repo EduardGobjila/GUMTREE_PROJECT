@@ -36,11 +36,11 @@
           <%= link_to 'Delete', @item , data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } , class: 'btn btn-danger text-white', style: 'margin: 10px;' %>
           <%= link_to 'Main Page', items_path, class: 'btn btn-success text-white', style: 'margin: 10px;' %>
         <% else %>
-          <a href="#" class="btn btn-success text-white" style="margin-bottom: 10px;">Purchase</a>
+          <a href="#" class="btn btn-success text-white" style="margin: 10px;">Purchase</a>
           <%= link_to 'Main Page', items_path, class: 'btn btn-success text-white', style: 'margin: 10px;' %>
         <% end %>
       <% else %>
-        <%= link_to 'Sign in to Purchase', new_user_session_path, class: "btn btn-success text-white", style: "margin-bottom: 10px;"  %>
+        <%= link_to 'Sign in to Purchase', new_user_session_path, class: "btn btn-success text-white", style: "margin: 10px;"  %>
         <%= link_to 'Main Page', items_path, class: 'btn btn-success text-white', style: 'margin: 10px;' %>
       <% end %>
     </div>
