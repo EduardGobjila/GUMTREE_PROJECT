@@ -27,7 +27,7 @@
     <%# add image location source%>
   <%# <div class="body-flex"> %>
       <% @items.each do |item| %>
-      <div class="card-product">
+       <div class="card-product">
         <% if item.photos.attached? %>
         <% item.photos.each do |photo| %>
         <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
