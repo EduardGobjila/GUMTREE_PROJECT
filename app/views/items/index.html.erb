@@ -1,45 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Page</title>
-</head>
 
-<body>
-  <div class="wrapper">
-    <div class="body-div">
-      <h1>Start Exploring The Market</h1>
-    </div>
+<div class="wrapper">
+  <div class="body-div">
+    <h1>Start Exploring The Market</h1>
+  </div>
 
-      <div class="index-div">
-        <p><%= @items.length %> total ads matching your search criteria</p>
-          <div>
-            <select aria-labelledby="refine-sortlabel" name="sort" data-q="srp-sort">
-              <option value="date">Most recent first</option>
-              <option value="price_lowest_first">Price: Low to High</option>
-              <option value="price_highest_first">Price: High to Low</option>
-              <option value="distance">Nearest first</option>
-            </select>
-          </div>
+  <div class="index-div">
+    <p><%= @items.length %> total ads matching your search criteria</p>
+      <div>
+        <select aria-labelledby="refine-sortlabel" name="sort" data-q="srp-sort">
+          <option value="date">Most recent first</option>
+          <option value="price_lowest_first">Price: Low to High</option>
+          <option value="price_highest_first">Price: High to Low</option>
+          <option value="distance">Nearest first</option>
+        </select>
       </div>
-        <%# add image location source%>
-        <%# <div class="body-flex"> %>
+  </div>
+      <%# add image location source%>
+      <%# <div class="body-flex"> %>
 
-       <% @items.each do |item| %>
-          <%= link_to item_path(item) do  %>
+  <% @items.each do |item| %>
+    <%= link_to item_path(item) do  %>
 
-        <div class="card-product">
+      <div class="card-product">
 
-          <% if item.photos.attached? %>
-            <%= cl_image_tag item.photos.first.key, height: 300, width: 400, crop: :fill %>
-          <% else %>
-              <img src="https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg" />
-          <% end %>
-           <%# changes made %>
+        <% if item.photos.attached? %>
+          <%= cl_image_tag item.photos.first.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+            <img src="https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg" />
+        <% end %>
+          <%# changes made %>
 
-        <div class="card-product-infos">
+          <div class="card-product-infos">
 
           <div>
             <h2><%= item.name%></h2>
@@ -53,17 +44,13 @@
           </div>
         </div>
       </div>
-        <% end %>
-       <%# </div> %>
-       <%# </div> %>
-      <% end %>
-        <div style="width: 100%; height: 601px;"
-          data-controller="map"
-          data-map-markers-value="<%= @markers.to_json %>"
-          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
-      </div>
-   </div>
-    </div>
-</body>
-</html>
+    <% end %>
+  <%# </div> %>
+  <%# </div> %>
+  <% end %>
+
+  <div style="width: 100%; height: 601px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
