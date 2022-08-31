@@ -27,13 +27,14 @@
     <%# add image location source%>
   <%# <div class="body-flex"> %>
       <% @items.each do |item| %>
+        <%= link_to item_path(item) do  %>
        <div class="card-product">
         <% if item.photos.attached? %>
         <% item.photos.each do |photo| %>
         <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
         <% end %>
           <% else %>
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <img src="https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg" />
           <% end %>
 
         <div class="card-product-infos">
@@ -45,10 +46,11 @@
           <div>
             <i class="fa-solid fa-thumbs-up"></i>
             <p>£<%=item.price %></p>
+      <%# <%= link_to 'See More', item, class: 'btn btn-danger text-white' %>
           </div>
-     <%# <%= link_to 'See More', item, class: 'btn btn-danger text-white' %>
         </div>
       </div>
+      <% end %>
   </div>
 
       </div>
