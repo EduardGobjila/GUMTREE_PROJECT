@@ -4,8 +4,8 @@ class ItemsController < ApplicationController
 
     @markers = @items.geocoded.map do |item|
       {
-      lat: @items.latitude,
-      lng: @items.longitude
+      lat: item.latitude,
+      lng: item.longitude
     }
     end
   end
@@ -15,12 +15,12 @@ class ItemsController < ApplicationController
     @user_id = @item.user_id
     @user = User.find(@user_id)
 
-    @markers = @item.geocoded.map do
+    @geocode = @item.geocode
+    @markers =
       {
-      lat: @item.latitude,
-      lng: @item.longitude
-    }
-  end
+      lat: @geocode[0],
+      lng: @geocode[1]
+  }
   end
 
   # Edit a new item or card --ED
