@@ -1,12 +1,26 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all
+
+    @markers = @items.geocoded.map do |item|
+      {
+      lat: @items.latitude,
+      lng: @items.longitude
+    }
+    end
   end
 
   def show
     @item = Item.find(params[:id])
     @user_id = @item.user_id
     @user = User.find(@user_id)
+
+    @markers = @item.geocoded.map do
+      {
+      lat: @item.latitude,
+      lng: @item.longitude
+    }
+  end
   end
 
   # Edit a new item or card --ED
@@ -32,7 +46,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.user = current_user
     if @item.save
-      redirect_to items_path
+      redirect_to item_path
     else
       render :new, stauts: :unprocessable_entity
     end

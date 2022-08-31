@@ -27,7 +27,7 @@
     <%# add image location source%>
   <%# <div class="body-flex"> %>
       <% @items.each do |item| %>
-      <div class="card-product">
+       <div class="card-product">
         <% if item.photos.attached? %>
         <%= cl_image_tag item.photos.first.key, height: 300, width: 400, crop: :fill %>
           <% else %>
@@ -37,7 +37,7 @@
         <div class="card-product-infos">
           <div>
             <h2><%= item.name%></h2>
-            <h4><%= item.location%></h4>
+            <p><%= item.location%></p>
             <p><%= item.description %></p>
           </div>
           <div>
