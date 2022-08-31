@@ -12,22 +12,23 @@
   </div>
 </header>
 <body>
-  <div class="container pt-5 col-4">
-    <div class="card">
-      <% if @item.photos.key %>
-        <%= cl_image_tag @item.photos.key %>
-      <% else %>
-        <%= image_tag 'https://res.cloudinary.com/dwoz78u8z/image/upload/v1661513495/kksgxdj5efn7leuvtcs8.jpg', height: 300, width: 400, crop: :fill %>
-      <% end %>
-    </div>
-  <div class="body-div-show">
+  <div class="body-div-show container pt-5 col-6">
     <div>
+        <div class="show-page-photo">
+        <% if @item.photos.attached? %>
+          <% @item.photos.each do |item| %>
+            <%= cl_image_tag item.key %>
+          <% end %>
+        <% else %>
+          <%= image_tag 'https://res.cloudinary.com/dwoz78u8z/image/upload/v1661513495/kksgxdj5efn7leuvtcs8.jpg', height: 300, width: 400, crop: :fill %>
+        <% end %>
+      </div>
       <h2><%= @item.description %></h2>
       <p><%= @item.price %></p>
       <p><%= @item.category %></p>
       <p><%= @user.username %></p>
     </div>
-    <div>
+  <div>
       <% if user_signed_in? %>
         <% if current_user.id == @item.user_id %>
           <%= link_to 'Edit', edit_item_path, class: 'btn btn-success text-white', style: 'margin: 10px;' %>

@@ -2,9 +2,8 @@
 @import "home";
 @import "navbar";
 @import "show";
-* {
-  border: 1px solid red;
-}
+@import "_photo_show_page";
+
 .body-div {
  text-align: center;
 }
