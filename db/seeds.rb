@@ -9,8 +9,8 @@ require "faker"
 
 "cleaning database"
 
-User.destroy_all
 Item.destroy_all
+User.destroy_all
 
 puts "creating 10 users"
 
@@ -24,8 +24,8 @@ puts "creating 10 users"
   )
 end
 
-puts "creating 50 items"
-50.times do
+puts "creating 10 items"
+10.times do
   Item.create!(
     name: Faker::Commerce.product_name,
     category: Item::CATEGORIES.sample,
