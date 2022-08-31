@@ -15,12 +15,21 @@ class ItemsController < ApplicationController
     @user_id = @item.user_id
     @user = User.find(@user_id)
 
+<<<<<<< HEAD
   #   @geocode = @item.geocode
   #   @markers =
   #     {
   #     lat: @geocode[0],
   #     lng: @geocode[1]
   # }
+=======
+    @geocode = @item.geocode
+    @markers =
+      {
+      lat: @geocode[0],
+      lng: @geocode[1]
+  }
+>>>>>>> 10d83cb3d56ce8eed74e3f05a0ca32a9f126e74c
   end
 
   # Edit a new item or card --ED
