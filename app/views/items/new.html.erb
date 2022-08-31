@@ -9,7 +9,7 @@
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.input :category, collection: Item::CATEGORIES %>
     <%= f.submit class: 'btn btn-primary text-white' %>
-    <%= link_to "Back to Main page", root_path, class: 'btn btn-danger text-white', style: 'margin: 10px;'  %>
+    <%= link_to "Back to Main page", items_path, class: 'btn btn-danger text-white', style: 'margin: 10px;'  %>
   <% end %>
 
   <br>
