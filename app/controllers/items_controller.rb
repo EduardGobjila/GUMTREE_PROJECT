@@ -1,12 +1,21 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all
+
+    @markers = @items.geocoded.map do |item|
   end
 
   def show
     @item = Item.find(params[:id])
     @user_id = @item.user_id
     @user = User.find(@user_id)
+
+    @markers = @item.geocoded.map do
+      {
+      lat: @item.latitude,
+      lng: @item.longitude
+    }
+  end
   end
 
   # Edit a new item or card --ED
