@@ -15,24 +15,25 @@ User.destroy_all
 puts "creating 10 users"
 
 10.times do
-  User.create!(
+  user = User.create!(
     email: Faker::Internet.email,
     username: Faker::Name.name,
     password: "password",
     phone: Faker::PhoneNumber.extension.to_i,
     location: Faker::Address.street_name
   )
+  3.times do
+    Item.create!(
+      name: Faker::Commerce.product_name,
+      category: Item::CATEGORIES.sample,
+      price: Faker::Commerce.price.to_f,
+      description: Faker::Commerce.brand,
+      location: Faker::Address.street_name,
+      user: user
+    )
+  end
 end
 
 puts "creating 10 items"
-10.times do
-  Item.create!(
-    name: Faker::Commerce.product_name,
-    category: Item::CATEGORIES.sample,
-    price: Faker::Commerce.price.to_f,
-    description: Faker::Commerce.brand,
-    location: Faker::Address.street_name,
-    user_id: rand(1..10)
-  )
-end
+
 puts "finished"
