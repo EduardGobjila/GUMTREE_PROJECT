@@ -31,6 +31,7 @@ puts "creating 10 items"
     category: Item::CATEGORIES.sample,
     price: Faker::Commerce.price.to_f,
     description: Faker::Commerce.brand,
+    location: Faker::Address.street_name,
     user_id: rand(1..10)
   )
 end
