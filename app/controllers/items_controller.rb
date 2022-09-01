@@ -6,6 +6,13 @@ class ItemsController < ApplicationController
 
     @items = Item.all
      end
+      
+      sql_query = "name ILIKE :query OR description ILIKE :query"
+      @items = Item.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @items = Item.all
+    end
+
 
   end
 
