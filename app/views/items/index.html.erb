@@ -22,7 +22,7 @@
       <h4 style="margin-left:15px;">Search by category:</h4>
       <% @categories = Item::CATEGORIES %>
         <% @categories.each do |category| %>
-          <%= link_to category, root_path, class: 'btn btn-success text-white category-button', style: 'width: 160px; margin: 10px;  background-color: #0d475c !important; margin-left: 20px' %> <br>
+          <%= link_to category, items_path(category: category), class: 'btn btn-success text-white category-button', style: 'width: 160px; margin: 10px;  background-color: #0d475c !important; margin-left: 20px' %> <br>
         <% end %>
     </div>
 
