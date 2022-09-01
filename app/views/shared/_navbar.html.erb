@@ -6,11 +6,24 @@
 
     <%= simple_form_for :search, url: root_path, method: :get do |f| %>
       <div class="search-form-control form-group">
-        <input class="form-control string required" placeholder="eg. Apple MacBook pro..." type="text" name="search[query]" id="search_query" />
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "eg. Apple MacBook pro..."
+        %>
+
         <button name="button" type="submit" class="btn btn-flat">
           <i class="fas fa-search"></i> Search
         </button>
       </div>
+    <% end %>
+    <%= form_with url: items_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "eg. Apple MacBook pro..."
+      %>
+      <%= submit_tag "Search", class: "btn btn-flat" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
