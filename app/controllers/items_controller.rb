@@ -2,17 +2,11 @@ class ItemsController < ApplicationController
   def index
     if params[:query].present?
       @items = Item.where(name: params[:query])
-     else
-
-    @items = Item.all
-     end
-
-      sql_query = "name ILIKE :query OR description ILIKE :query"
-      @items = Item.where(sql_query, query: "%#{params[:query]}%")
+    elsif params[:category].present?
+      @items = Item.where(category: params[:category]).order(created_at: :desc)
+    else
       @items = Item.all
-
-
-
+    end
   end
 
   def show
@@ -28,8 +22,6 @@ class ItemsController < ApplicationController
       lng: @geocode[1]
   }]
     end
-
-
   end
 
   # Edit a new item or card --ED
