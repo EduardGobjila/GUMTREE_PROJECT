@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def index
     if params[:query].present?
-      @items = Item.where(name: params[:query])
+      @items = Item.where("name ILIKE ?", "%#{params[:query]}%")
     elsif params[:category].present?
       @items = Item.where(category: params[:category]).order(created_at: :desc)
     else
