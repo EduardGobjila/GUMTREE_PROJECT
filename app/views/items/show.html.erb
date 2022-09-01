@@ -1,8 +1,15 @@
+<div class="my-title">
+  <h1><%= @item.name %></h1>
+</div>
+
 <div class="flex-container">
 
   <div class ="flex-item">
+    <div class="map-container">
     <div class="body-div-show container pt-5 col-6">
-      <div>
+    <div class="left-box">
+      <div class="flex-item-inner">
+
         <div class="show-page-photo">
 
           <% if @item.photos.attached?%>
@@ -11,7 +18,7 @@
               <ol class="carousel-indicators">
                 <li data-target="#carouselExampleControls" data-slide-to="0" class='active'></li>
                 <% @item.photos.each_with_index do |image, index| %>
-                   <li data-target="#carouselExampleControls" data-slide-to="<%= index + 1 %>" class=""></li>
+                   <li data-target="#carouselExampleControls" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
                 <% end %>
               </ol>
               <div class="carousel-inner" role="listbox">
@@ -38,21 +45,25 @@
                  </a>
                 </div>
 
-                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
               <%# <%= cl_image_tag item.key %>
 
             </div>
           <% else %>
             <img src="https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg", height="400", width= "300">
           <% end %>
+        </div>
+        </div>
+      <div class="flex-item-inner">
+          <div class = "user-info">
           <h2><%= @item.description %></h2>
           <p><%= @item.price %></p>
           <p><%= @item.category %></p>
           <p><%= @item.location %></p>
           <p><%= @user.username %></p>
-        </div>
+          </div>
+      </div>
+      <div class="flex-item-inner">
         <div>
           <% if user_signed_in? %>
             <% if current_user.id == @item.user_id %>
@@ -69,7 +80,10 @@
           <% end %>
         </div>
       </div>
+
+      </div>
     </div>
+  </div>
   </div>
 
 
