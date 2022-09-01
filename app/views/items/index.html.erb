@@ -19,11 +19,36 @@
   <div class="body-content">
 
     <div class="category">
+
+      <h4 style="margin-left:15px;">Search by location:</h4>
+        <select style="margin-left:20px" aria-labelledby="refine-sortlabel" name="sort" data-q="srp-sort">
+          <option value="#">within 1 mile of</option>
+          <option value="#">within 5 mile of</option>
+          <option value="#">within 10 mile of</option>
+          <option value="#">within 20 mile of</option>
+        </select>
+
+        <%= simple_form_for :search, url: items_path, method: :get do |f| %>
+      <div style="margin-left:20px; margin-top:10px; margin-bottom:10px; width:160px;" class="search-form-control form-group">
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Postcode"
+        %>
+
+        <button name="button" type="submit" class="btn btn-flat">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    <% end %>
+
+
       <h4 style="margin-left:15px;">Search by category:</h4>
       <% @categories = Item::CATEGORIES %>
         <% @categories.each do |category| %>
           <%= link_to category, root_path, class: 'btn btn-success text-white category-button', style: 'width: 160px; margin: 10px;  background-color: #0d475c !important; margin-left: 20px' %> <br>
         <% end %>
+
     </div>
 
     <div class="cards">
