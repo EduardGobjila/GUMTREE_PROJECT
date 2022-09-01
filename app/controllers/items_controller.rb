@@ -1,13 +1,12 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    if params[:query].present?
+      @items = Item.where(name: params[:query])
+     else
 
-    # @markers = @items.geocoded.map do |item|
-    #   {
-    #   lat: item.latitude,
-    #   lng: item.longitude
-    # }
-    # end
+    @items = Item.all
+     end
+
   end
 
   def show

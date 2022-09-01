@@ -21,7 +21,7 @@ header {
 
 .flex-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .body-div-show img {
@@ -29,4 +29,28 @@ header {
   width: 700px;
   object-fit: cover;
 
+}
+
+.map-container{
+  margin: 0 auto;
+  margin-top: 30px;
+  box-shadow: 10px;
+  padding: 20px;
+  background-color: #0D475C;
+  border-radius: 10px;
+}
+
+.map {
+  padding: 20px;
+}
+
+.right-box{
+  display: flex;
+  flex-direction: column;
+}
+
+.user-info{
+  margin-top: 30px;
+  color: white;
+  font-weight: bold;
 }
