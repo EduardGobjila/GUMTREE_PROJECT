@@ -1,20 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Show Page</title>
-</head>
-<header>
-  <div class="hedaer-div">
-    <h1 class="show-page-h"><%= @item.name %></h1>
-  </div>
-</header>
-<body>
-  <div class="body-div-show container pt-5 col-6">
-    <div>
+<div class="flex-container">
+
+  <div class ="flex-item">
+    <div class="body-div-show container pt-5 col-6">
+      <div>
         <div class="show-page-photo">
+
+          <% if @item.photos.attached?%>
+
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <% @item.photos.each_with_index do |image, index| %>
+              <li data-target="#carouselExampleControls" data-slide-to="<%= index %>" class="<%= index == 0 ? 'active' : '' %>"></li>
+            <% end %>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+              <% @item.photos.each_with_index do |image, index| %>
+            <div class="item <%= index == 0 ? 'active' : '' %>">
+              <%= cl_image_tag image.key %>
+              <% end %>
+            </div>
+
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+            </div>
+              <%# <%= cl_image_tag item.key %>
+
+            <% else %>
+              <img src="https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg", height="400", width= "300">
+            <% end %>
+          </div>
+            <h2><%= @item.description %></h2>
+            <p><%= @item.price %></p>
+            <p><%= @item.category %></p>
+            <p><%= @user.username %></p>
+            <p><%= @item.location %></p>
+          </div>
+          <div>
+              <% if user_signed_in? %>
+                <% if current_user.id == @item.user_id %>
+                  <%= link_to 'Edit', edit_item_path, class: 'btn btn-success text-white', style: 'margin: 10px;' %>
+                  <%= link_to 'Delete', @item , data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } , class: 'btn btn-danger text-white', style: 'margin: 10px;' %>
+                  <%= link_to 'Main Page', items_path, class: 'btn btn-success text-white', style: 'margin: 10px;' %>
+                <% else %>
+                  <a href="#" class="btn btn-success text-white" style="margin-bottom: 10px;">Purchase</a>
+                  <%= link_to 'Main Page', items_path, class: 'btn btn-success text-white', style: 'margin: 10px;' %>
+                <% end %>
+              <% else %>
+                <%= link_to 'Sign in to Purchase', new_user_session_path, class: "btn btn-success text-white", style: "margin-bottom: 10px;"  %>
+                <%= link_to 'Main Page', items_path, class: 'btn btn-success text-white', style: 'margin: 10px;' %>
+              <% end %>
+          </div>
+  </div>
+</div>
+
         <% if @item.photos.attached?%>
           <% @item.photos.each do |item| %>
             <%= cl_image_tag item.key %>
@@ -44,6 +89,16 @@
         <%= link_to 'Main Page', items_path, class: 'btn btn-success text-white', style: 'margin: 10px;' %>
       <% end %>
     </div>
+
   </div>
-</body>
-</html>
+</div>
+</div>
+
+<div class ="flex-item">
+<div style="width: 30%; height: 300px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+</div>

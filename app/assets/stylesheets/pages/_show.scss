@@ -17,8 +17,15 @@ header {
   border-radius: 9px;
   margin-bottom: 80px;
 }
+
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+
 .body-div-show img {
   height: 300px;
   width: 700px;
   object-fit: cover;
+
 }
