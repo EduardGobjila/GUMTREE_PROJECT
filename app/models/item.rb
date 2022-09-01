@@ -9,5 +9,5 @@ class Item < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 
-  CATEGORIES = ['Pets', 'Vehicles', 'Bycicles', 'Clothes', 'Audio & Stereo', 'Jobs', 'Electronics', 'Health and Beauty', 'Others']
+  CATEGORIES = ['Pets', 'Vehicles', 'Bicycles', 'Clothes', 'Audio & Stereo', 'Jobs', 'Electronics', 'Health & Beauty', 'Others'].sort
 end

@@ -5,8 +5,18 @@
 @import "_photo_show_page";
 
 .header {
+  color: #0d475c;
   margin: 0 auto;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.9;
+  height: 500px;
+  // object-fit: contain;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  background-position-y: -200px ;
 }
 .inner-sorting-table {
   display: flex;
@@ -19,6 +29,13 @@
 }
 .category {
   width: 300px;
+}
+.category-button {
+  border-radius: 20px;
+  transition: 0.4s ease-in-out;
+}
+.category-button:hover {
+  padding: 10px;
 }
 .cards {
   text-align: center;
@@ -39,9 +56,11 @@
   background-color: rgb(236, 236, 236);
   border-radius: 30px;
   box-shadow: 1px 1px 12px gray;
+  transform: rotate(5deg);
 }
-.each-card p {
-   box-sizing: border-box;
+.cards a {
+  text-decoration: none;
+  color: #0d475c;
 }
 .each-card img {
   width: 200px;
@@ -50,6 +69,9 @@
   border-top-left-radius: 20px;
   object-fit: cover;
   border-top-right-radius: 20px;
+}
+option:checked {
+  background-color: #0d475c;
 }
 
 
