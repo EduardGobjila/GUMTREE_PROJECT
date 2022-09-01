@@ -2,12 +2,12 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
 
-    @markers = @items.geocoded.map do |item|
-      {
-      lat: item.latitude,
-      lng: item.longitude
-    }
-    end
+    # @markers = @items.geocoded.map do |item|
+    #   {
+    #   lat: item.latitude,
+    #   lng: item.longitude
+    # }
+    # end
   end
 
   def show
@@ -16,12 +16,13 @@ class ItemsController < ApplicationController
     @user = User.find(@user_id)
 
 
-  #   @geocode = @item.geocode
-  #   @markers =
-  #     {
-  #     lat: @geocode[0],
-  #     lng: @geocode[1]
-  # }
+    @geocode = @item.geocode
+    @markers =
+      [{
+      lat: @geocode[0],
+      lng: @geocode[1]
+  }]
+
 
   end
 
