@@ -21,7 +21,7 @@
     <div class="category">
      <% @categories = Item::CATEGORIES %>
       <% @categories.each do |category| %>
-        <%= category %>
+        <%= category %> <br>
       <% end %>
     </div>
 
@@ -34,17 +34,17 @@
           <% else %>
             <img src="https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg">
           <% end %>
+
+
           <div class="card-content">
             <p><strong><%= item.name %></strong></p>
             <p><strong>£<%= item.price %></strong></p>
           </div>
         </div>
-
+      <% end %>
       </div>
-    <% end %>
-
-
     </div>
+
 
   </div>
 
