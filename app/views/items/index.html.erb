@@ -19,6 +19,10 @@
   <div class="body-content">
 
     <div class="category">
+     <% @categories = Item::CATEGORIES %>
+      <% @categories.each do |category| %>
+        <%= category %>
+      <% end %>
     </div>
 
 

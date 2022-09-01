@@ -15,7 +15,10 @@
   height: 25px;
 }
 .body-content {
-  display: flex-end;
+  display: flex;
+}
+.category {
+  display: inline-block;
 }
 .cards {
   text-align: center;
