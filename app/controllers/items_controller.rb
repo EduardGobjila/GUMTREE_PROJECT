@@ -15,13 +15,14 @@ class ItemsController < ApplicationController
     @user_id = @item.user_id
     @user = User.find(@user_id)
 
-
+    if @item.geocode
     @geocode = @item.geocode
     @markers =
       [{
       lat: @geocode[0],
       lng: @geocode[1]
   }]
+    end
 
 
   end
