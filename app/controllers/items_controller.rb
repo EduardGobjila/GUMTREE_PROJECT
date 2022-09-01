@@ -1,18 +1,19 @@
 class ItemsController < ApplicationController
   def index
     if params[:query].present?
+      @items = Item.where(name: params[:query])
+     else
+
+    @items = Item.all
+     end
+      
       sql_query = "name ILIKE :query OR description ILIKE :query"
       @items = Item.where(sql_query, query: "%#{params[:query]}%")
     else
       @items = Item.all
     end
 
-    # @markers = @items.geocoded.map do |item|
-    #   {
-    #   lat: item.latitude,
-    #   lng: item.longitude
-    # }
-    # end
+
   end
 
   def show
