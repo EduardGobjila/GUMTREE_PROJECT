@@ -57,10 +57,10 @@
       <div class="flex-item-inner">
           <div class = "user-info">
           <h2><%= @item.description %></h2>
-          <p><%= @item.price %></p>
           <p><%= @item.category %></p>
-          <p><%= @item.location %></p>
-          <p><%= @user.username %></p>
+          <div class="price">
+            <p>£ <%= @item.price %></p>
+          </div>
           </div>
       </div>
       <div class="flex-item-inner">
@@ -71,8 +71,10 @@
               <%= link_to 'Delete', @item , data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } , class: 'btn btn-danger text-white', style: 'margin: 10px;' %>
               <%= link_to 'Main Page', items_path, class: 'btn btn-success text-white', style: 'margin: 10px;' %>
             <% else %>
-              <a href="#" class="btn btn-success text-white" style="margin-bottom: 10px;">Purchase</a>
-              <%= link_to 'Main Page', items_path, class: 'btn btn-success text-white', style: 'margin: 10px;' %>
+              <div class="purchase" >
+                <a href="#" class="purchase-btn">Purchase</a>
+              </div>
+              <%= link_to 'Main Page', items_path, class: 'btn btn-danger text-white', style: 'margin: 10px;' %>
             <% end %>
           <% else %>
             <%= link_to 'Sign in to Purchase', new_user_session_path, class: "btn btn-success text-white", style: "margin-bottom: 10px;"  %>
@@ -127,10 +129,7 @@
               <h4>Add Message</h4>
               <form>
                 <div class="form-row">
-                  <div class="form-group">
-                    <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-                  </div>
+
                   <div class="form-group">
                     <label for="Message">Message</label>
                     <textarea class="form-control" id="Message" rows="3" placeholder="Write Your Message Here"></textarea>
