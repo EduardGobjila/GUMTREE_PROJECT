@@ -1,48 +1,41 @@
-
 <div class="wrapper">
-  <div class="body-div">
-    <h1>Start Exploring The Market</h1>
+  <div class="header">
+    <h1>Start Explorin The Market In a Click</h1>
   </div>
 
-  <div class="index-div">
-    <p><%= @items.length %> total ads matching your search criteria</p>
-      <div>
+  <div class="sorting-table">
+    <div class="inner-sorting-table">
+      <p><%= @items.length %> ads</p>
         <select aria-labelledby="refine-sortlabel" name="sort" data-q="srp-sort">
           <option value="date">Most recent first</option>
           <option value="price_lowest_first">Price: Low to High</option>
           <option value="price_highest_first">Price: High to Low</option>
           <option value="distance">Nearest first</option>
         </select>
-      </div>
+    </div>
   </div>
-      <%# add image location source%>
-      <%# <div class="body-flex"> %>
 
-  <% @items.each do |item| %>
-    <%= link_to item_path(item) do  %>
 
-      <div class="card-product">
+  <div class="body-content">
 
-        <% if item.photos.attached? %>
-          <%= cl_image_tag item.photos.first.key, height: 300, width: 400, crop: :fill %>
-        <% else %>
-            <img src="https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg" />
-        <% end %>
-          <%# changes made %>
+    <div class="category">
+    </div>
 
-          <div class="card-product-infos">
 
-          <div>
-            <h2><%= item.name%></h2>
-            <p><%= item.location%></p>
-            <p><%= item.description %></p>
-          </div>
-          <div>
-            <i class="fa-solid fa-thumbs-up" style="padding-left: 50px;"></i>
-            <p>£<%=item.price %></p>
-            <%# <%= link_to 'See More', item, class: 'btn btn-danger text-white' %>
+    <div class="cards">
+      <% @items.each do |item| %>
+        <div class="each-card">
+          <% if item.photos.attached? %>
+            <%= cl_image_tag item.photos.first.key %>
+          <% else %>
+            <img src="https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg">
+          <% end %>
+          <div class="card-content">
+            <p><strong><%= item.name %></strong></p>
+            <p><strong>£<%= item.price %></strong></p>
           </div>
         </div>
+
       </div>
     <% end %>
   <%# </div> %>
@@ -52,4 +45,11 @@
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
+      <% end %>
+    </div>
+
   </div>
+
+
+</div>

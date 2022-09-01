@@ -4,6 +4,7 @@
     <div class="body-div-show container pt-5 col-6">
       <div>
         <div class="show-page-photo">
+
           <% if @item.photos.attached?%>
 
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -58,6 +59,37 @@
           </div>
   </div>
 </div>
+
+        <% if @item.photos.attached?%>
+          <% @item.photos.each do |item| %>
+            <%= cl_image_tag item.key %>
+          <% end %>
+        <% else %>
+          <img src="https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg", height="400", width= "300">
+        <% end %>
+      </div>
+      <h2><%= @item.description %></h2>
+      <p>£<%= @item.price %></p>
+      <p><%= @item.category %></p>
+      <p><%= @user.username %></p>
+      <p><%= @item.location %></p>
+    </div>
+  <div>
+      <% if user_signed_in? %>
+        <% if current_user.id == @item.user_id %>
+          <%= link_to 'Edit', edit_item_path, class: 'btn btn-success text-white', style: 'margin: 10px;' %>
+          <%= link_to 'Delete', @item , data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } , class: 'btn btn-danger text-white', style: 'margin: 10px;' %>
+          <%= link_to 'Main Page', items_path, class: 'btn btn-success text-white', style: 'margin: 10px;' %>
+        <% else %>
+          <a href="#" class="btn btn-success text-white" style="margin: 10px;">Purchase</a>
+          <%= link_to 'Main Page', items_path, class: 'btn btn-success text-white', style: 'margin: 10px;' %>
+        <% end %>
+      <% else %>
+        <%= link_to 'Sign in to Purchase', new_user_session_path, class: "btn btn-success text-white", style: "margin: 10px;"  %>
+        <%= link_to 'Main Page', items_path, class: 'btn btn-success text-white', style: 'margin: 10px;' %>
+      <% end %>
+    </div>
+
   </div>
 </div>
 </div>
