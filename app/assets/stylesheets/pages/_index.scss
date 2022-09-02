@@ -18,7 +18,11 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
-  background-position-y: -200px ;
+  // background-position-y: -200px ;
+}
+.herotext{
+  margin-top:195px;
+  text-shadow: 2px 2px 2px #e8ebec;
 }
 .inner-sorting-table {
   display: flex;
@@ -71,6 +75,9 @@
   border-top-left-radius: 20px;
   object-fit: cover;
   border-top-right-radius: 20px;
+}
+.wrapper{
+  opacity: 0.9;
 }
 option:checked {
   background-color: #0d475c;
