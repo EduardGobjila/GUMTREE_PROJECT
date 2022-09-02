@@ -113,7 +113,9 @@
           </div>
          <div class="flex-item-inner">
           <div class="user-info">
+           <% if @item.location.present? %>
             <h4>Location: <%= @item.location.upcase %></h4>
+            <% end %>
             <h4>Username: <%= @user.username %></h4>
             <p>Phone Number: <%= @user.phone %></p>
           </div>
