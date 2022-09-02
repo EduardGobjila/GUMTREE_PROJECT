@@ -4,7 +4,7 @@
   </div>
 
   <div class="sorting-table">
-    <div class="inner-sorting-table">
+    <div class="inner-sorting-table" style="margin-bottom: 60px;">
       <div>
         <p><strong><%= @items.length %> items </strong>match your search criteria  </p>
       </div>
@@ -14,7 +14,7 @@
           <option value="price_lowest_first">Price: Low to High</option>
           <option value="price_highest_first">Price: High to Low</option>
         </select>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" id="submit">
         </form>
     </div>
   </div>
@@ -58,7 +58,9 @@
               <p><strong><%= item.name%></strong></p>
               <div>
                 <p><strong>£<%= '%.2f' % item.price %></strong></p>
-                <p><strong><%= item.location.upcase %></strong> </p>
+                 <% if item.location.present? %>
+                  <p><strong><%= item.location.upcase %></strong> </p>
+                 <% end %>
               </div>
 
 
