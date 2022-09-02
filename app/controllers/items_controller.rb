@@ -2,11 +2,25 @@ class ItemsController < ApplicationController
   def index
     if params[:query].present?
       @items = Item.where("name ILIKE ?", "%#{params[:query]}%")
+    elsif params[:location].present?
+      @items = Item.where("location ILIKE ?", "%#{params[:location]}%")
     elsif params[:category].present?
       @items = Item.where(category: params[:category]).order(created_at: :desc)
     else
       @items = Item.all
     end
+
+    if params[:sort] == "price_lowest_first"
+      @items = Item.order(:price)
+    elsif params[:sort] == "date"
+      @items = Item.order(:created_at)
+    elsif params[:sort] == "price_highest_first"
+      @items = Item.order(price: :desc)
+    # elsif params[:sort] == "distance"
+    #   @items = Item.near(current_user.location)
+    end
+
+
   end
 
   def show

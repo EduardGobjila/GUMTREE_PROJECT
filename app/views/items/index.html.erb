@@ -8,12 +8,14 @@
       <div>
         <p><strong><%= @items.length %> items </strong>match your search criteria  </p>
       </div>
+      <form action = "/items">
         <select aria-labelledby="refine-sortlabel" name="sort" data-q="srp-sort">
           <option value="date">Most recent first</option>
           <option value="price_lowest_first">Price: Low to High</option>
           <option value="price_highest_first">Price: High to Low</option>
-          <option value="distance">Nearest first</option>
         </select>
+        <input type="submit" value="Submit">
+        </form>
     </div>
   </div>
 
@@ -23,17 +25,15 @@
     <div class="category">
 
       <h4 style="margin-left:15px;">Search by location:</h4>
-        <select style="margin-left:20px" aria-labelledby="refine-sortlabel" name="sort" data-q="srp-sort">
-          <option value="#">within 1 mile of</option>
-          <option value="#">within 5 mile of</option>
-          <option value="#">within 10 mile of</option>
-          <option value="#">within 20 mile of</option>
-        </select>
+      <form action = "/items">
+      <p style="margin-left:15px;">Within <input type= "number" name="sort-location" id="number-box"> km</p><input type="submit" value="Submit">
+
+        </form>
 
         <%= simple_form_for :search, url: items_path, method: :get do |f| %>
       <div style="margin-left:20px; margin-top:10px; margin-bottom:10px; width:160px;" class="search-form-control form-group">
-        <%= text_field_tag :query,
-        params[:query],
+        <%= text_field_tag :location,
+        params[:location],
         class: "form-control",
         placeholder: "Postcode"
         %>

@@ -72,8 +72,12 @@
   object-fit: cover;
   border-top-right-radius: 20px;
 }
-option:checked {
-  background-color: #0d475c;
+// option:checked {
+//   background-color: #0d475c;
+// }
+
+#number-box {
+  width: 40px;
 }
 
 
