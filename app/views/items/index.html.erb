@@ -26,9 +26,8 @@
 
       <h4 style="margin-left:15px;">Search by location:</h4>
       <form action = "/items">
-      <p style="margin-left:15px;">Within <input type= "number" name="sort-location" id="number-box"> km</p><input type="submit" value="Submit">
-
-        </form>
+      <p style="margin-left:15px;">Within <input type= "number" name="sort_location" id="number-box"> km</p><input type="submit" value="Submit">
+      </form>
 
         <%= simple_form_for :search, url: items_path, method: :get do |f| %>
       <div style="margin-left:20px; margin-top:10px; margin-bottom:10px; width:160px;" class="search-form-control form-group">
