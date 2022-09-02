@@ -24,19 +24,20 @@
 
     <div class="category">
 
-      <h4 style="margin-left:15px;">Search by location:</h4>
+      <h4 style="margin-left:25px;">Search by location:</h4>
       <form action = "/items">
-      <p style="margin-left:15px;">Within <input type= "number" name="sort-location" id="number-box"> km</p><input type="submit" value="Submit">
+      <p style="margin-left:50px;">Within <input type= "number" name="sort-location" id="number-box"> km of</p>
 
         </form>
 
         <%= simple_form_for :search, url: items_path, method: :get do |f| %>
-      <div style="margin-left:20px; margin-top:10px; margin-bottom:10px; width:160px;" class="search-form-control form-group">
+      <div style="margin-left:50px; margin-top:10px; margin-bottom:10px; width:80%;" class="search-form-control form-group">
         <%= text_field_tag :location,
         params[:location],
         class: "form-control",
         placeholder: "Postcode"
         %>
+        <input type="submit" value="Submit" class: 'btn btn-success text-white category-button', style: 'vertical-align: text-bottom; width: 80%; height: 4%; margin: 2px;  background-color: #0d475c !important; margin-left: 50px' >
 
         <button name="button" type="submit" class="btn btn-flat">
           <i class="fas fa-search"></i>
@@ -48,7 +49,7 @@
       <h4 style="margin-left:25px;">Search by category:</h4>
       <% @categories = Item::CATEGORIES %>
         <% @categories.each do |category| %>
-          <%= link_to category, items_path(category: category), class: 'btn btn-success text-white category-button', style: 'width: 160px; margin: 10px;  background-color: #0d475c !important; margin-left: 50px' %> <br>
+          <%= link_to category, items_path(category: category), class: 'btn btn-success text-white category-button', style: 'vertical-align: text-bottom; width: 80%; height: 4%; margin: 2px;  background-color: #0d475c !important; margin-left: 50px' %> <br>
         <% end %>
 
     </div>
