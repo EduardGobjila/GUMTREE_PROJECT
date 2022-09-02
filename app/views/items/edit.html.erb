@@ -1,8 +1,11 @@
+<div class = "banner-new" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);">
+
+
 <div class="container pt-4 col-4">
   <h1>Edit Item</h1>
   <%= simple_form_for @item do |f| %>
     <%= f.input :name %>
-    <%= f.input :description %>
+    <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 5 } %>
     <%= f.input :price %>
     <%= f.input :location %>
     <%= f.input  :photos, as: :file, input_html: { multiple: true } %>

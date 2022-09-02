@@ -4,13 +4,12 @@
     <h1>Advertise an item</h1>
     <%= simple_form_for @item do |f| %>
       <%= f.input :name %>
-      <%= f.text_area :description, :input_html => {:rows => 3}   %>
+      <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 5 } %>
       <%= f.input :price %>
-      <%= f.input :phone %>
       <%= f.input :location %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <%= f.input :category, collection: Item::CATEGORIES %>
-      <%= f.submit class: 'btn btn-primary text-white' %>
+      <%= f.submit "Post", class: 'btn btn-primary text-white' %>
       <%= link_to "Back to Main page", items_path, class: 'btn btn-danger text-white', style: 'margin: 10px;'  %>
     <% end %>
 
