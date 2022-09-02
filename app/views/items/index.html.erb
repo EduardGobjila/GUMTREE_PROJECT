@@ -53,7 +53,7 @@
       <h4 style="margin-left:50px;">Search by category:</h4>
       <% @categories = Item::CATEGORIES %>
         <% @categories.each do |category| %>
-          <%= link_to category, items_path(category: category), class: 'btn btn-success text-white category-button', style: 'padding-bottom: 25px; font-size: smaller; vertical-align: text-bottom; width: 80%; height: 4%; margin: 2px;  background-color: #0d475c !important; margin-left: 50px' %> <br>
+          <%= link_to category, items_path(category: category), class: 'btn btn-success text-white category-button', style: 'padding-bottom: 25px; font-size: smaller; vertical-align: text-bottom; width: 80%; height: 15px; margin: 2px;  background-color: #0d475c !important; margin-left: 50px' %> <br>
         <% end %>
 
     </div>
