@@ -20,6 +20,10 @@ class ItemsController < ApplicationController
     #   @items = Item.near(current_user.location)
     end
 
+    if params[:sort_location].present?
+      @items = Item.near(current_user.location, params[:sort_location])
+    end
+
 
   end
 
