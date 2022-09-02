@@ -45,10 +45,10 @@
     <% end %>
 
 
-      <h4 style="margin-left:15px;">Search by category:</h4>
+      <h4 style="margin-left:25px;">Search by category:</h4>
       <% @categories = Item::CATEGORIES %>
         <% @categories.each do |category| %>
-          <%= link_to category, items_path(category: category), class: 'btn btn-success text-white category-button', style: 'width: 160px; margin: 10px;  background-color: #0d475c !important; margin-left: 20px' %> <br>
+          <%= link_to category, items_path(category: category), class: 'btn btn-success text-white category-button', style: 'width: 160px; margin: 10px;  background-color: #0d475c !important; margin-left: 50px' %> <br>
         <% end %>
 
     </div>
