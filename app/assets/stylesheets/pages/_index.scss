@@ -18,7 +18,11 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
-  background-position-y: -200px ;
+  // background-position-y: -200px ;
+}
+.herotext{
+  margin-top:195px;
+  text-shadow: 2px 2px 2px #e8ebec;
 }
 .inner-sorting-table {
   display: flex;
@@ -40,6 +44,8 @@
   padding: 10px;
 }
 .cards {
+  margin-left: 50px;
+  justify-content: flex-start;
   text-align: center;
   max-width: 900px;
   display: grid;
@@ -72,13 +78,20 @@
   object-fit: cover;
   border-top-right-radius: 20px;
 }
-// option:checked {
-//   background-color: #0d475c;
-// }
+
 
 #number-box {
   width: 40px;
+  }
+
+
+
+.wrapper{
+  opacity: 0.9;
 }
+
+
+
 
 
 
