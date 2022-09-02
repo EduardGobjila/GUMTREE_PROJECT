@@ -26,7 +26,9 @@
 
       <h4 style="margin-left:15px;">Search by location:</h4>
       <form action = "/items">
-      <p style="margin-left:15px;">Within <input type= "number" name="sort_location" id="number-box"> km</p><input type="submit" value="Submit">
+
+      <p style="margin-left:15px;">Within <label style="display: inline-block"><input type= "number" name="sort_location" id="number-box"> km <input type="submit" value="Submit"></label></p>
+
       </form>
 
         <%= simple_form_for :search, url: items_path, method: :get do |f| %>
@@ -65,7 +67,7 @@
 
             <div class="card-content">
               <p><strong><%= item.name %></strong></p>
-              <p><strong>£<%= item.price %></strong></p>
+              <p><strong>£<%= '%.2f' % item.price %></strong></p>
             </div>
           </div>
         <% end %>

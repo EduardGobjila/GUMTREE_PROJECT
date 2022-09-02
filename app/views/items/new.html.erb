@@ -1,17 +1,20 @@
+<div class = "banner-new" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);">
+
   <div class="container pt-4 col-4">
-  <h1>Advertise an item for sale</h1>
-  <%= simple_form_for @item do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :price %>
-    <%= f.input :phone %>
-    <%= f.input :location %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.input :category, collection: Item::CATEGORIES %>
-    <%= f.submit class: 'btn btn-primary text-white' %>
-    <%= link_to "Back to Main page", items_path, class: 'btn btn-danger text-white', style: 'margin: 10px;'  %>
-  <% end %>
+    <h1>Advertise an item for sale</h1>
+    <%= simple_form_for @item do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :price %>
+      <%= f.input :phone %>
+      <%= f.input :location %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.input :category, collection: Item::CATEGORIES %>
+      <%= f.submit class: 'btn btn-primary text-white' %>
+      <%= link_to "Back to Main page", items_path, class: 'btn btn-danger text-white', style: 'margin: 10px;'  %>
+    <% end %>
 
-  <br>
+    <br>
 
+  </div>
 </div>
