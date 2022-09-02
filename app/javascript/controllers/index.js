@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import FilterByLocationController from "./filter_by_location_controller"
+application.register("filter-by-location", FilterByLocationController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
