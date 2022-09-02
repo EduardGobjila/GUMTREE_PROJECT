@@ -1,7 +1,9 @@
-<div class="container">
+<div class = "banner-new" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);">
+
+<div class="container pt-4 col-4">
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
-    <div class="form-inputs container pt-4 col-4">
+
       <h2>Log in</h2>
         <%= f.input :email,
                     required: false,
@@ -12,7 +14,7 @@
                     input_html: { autocomplete: "current-password" } %>
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
           <div class="form-actions">
-        <%= f.button :submit, "Log in", class: 'btn btn-success text-white' %>
+        <%= f.button :submit, "Log in", class: 'btn btn-success text-white my-2' %><br>
         <%= render "devise/shared/links" %>
   </div>
   <% end %>
