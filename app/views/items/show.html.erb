@@ -1,3 +1,6 @@
+<div style="background-image: url(http://unblast.com/wp-content/uploads/2018/12/Subtle-Patterns-4.jpg)">
+
+
 <div class="my-title">
   <h1><%= @item.name %></h1>
 </div>
@@ -101,7 +104,7 @@
           </div>
          <div class="flex-item-inner">
           <div class="user-info">
-            <h4>Location: <%= @item.location %></h4>
+            <h4>Location: <%= @item.location.upcase %></h4>
             <h4>Username: <%= @user.username %></h4>
             <p>Phone Number: <%= @user.phone %></p>
           </div>
@@ -149,4 +152,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>
