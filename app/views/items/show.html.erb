@@ -59,7 +59,7 @@
           <h2><%= @item.description %></h2>
           <p><%= @item.category %></p>
           <div class="price">
-            <p>£ <%= @item.price %></p>
+            <p>£ <%=  '%.2f' % @item.price %></p>
           </div>
           </div>
       </div>
