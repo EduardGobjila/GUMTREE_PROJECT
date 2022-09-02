@@ -68,7 +68,7 @@
           <% if user_signed_in? %>
             <% if current_user.id == @item.user_id %>
               <%= link_to 'Edit', edit_item_path, class: 'btn btn-success text-white', style: 'margin: 10px;' %>
-              <%= link_to 'Delete', @item , data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } , class: 'btn btn-danger text-white', style: 'margin: 10px;' %>
+              <%= link_to 'Delete', item_path(@item) , data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } , class: 'btn btn-danger text-white', style: 'margin: 10px;' %>
               <%= link_to 'Main Page', items_path, class: 'btn btn-success text-white', style: 'margin: 10px;' %>
             <% else %>
               <div class="purchase" >
