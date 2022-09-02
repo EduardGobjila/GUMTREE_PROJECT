@@ -52,8 +52,7 @@
 
 .user-info{
   padding: 10px;
-  border-radius: 9px;
-  margin-top: 8px;
+  margin-top: 15px;
   border-radius: 9px;
   background-color: rgb(233, 233, 233);
   color: black;
@@ -77,12 +76,16 @@
 }
 
 .price{
+
   text-align: right;
 }
 
 .purchase{
   margin: 0 auto;
   text-align: center;
+}
+#align-right-bold{
+  text-align: right;
 }
 
 .purchase-btn{

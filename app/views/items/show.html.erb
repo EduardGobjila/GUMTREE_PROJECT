@@ -59,13 +59,22 @@
         </div>
       <div class="flex-item-inner">
           <div class = "user-info">
-          <h2><%= @item.description %></h2>
-          <p><%= @item.category %></p>
-          <div class="price">
-            <p>£ <%=  '%.2f' % @item.price %></p>
-          </div>
+            <div class="showcontainer">
+              <div class="leftalign">
+                <p>Categories > <%= @item.category %></p>
+              </div>
+
+              <div>
+                <p><strong>£<%=  '%.2f' % @item.price %></strong></p>
+              </div>
+            </div>
+            <h4><%= @item.description %></h4>
+
+
+
           </div>
       </div>
+
       <div class="flex-item-inner">
         <div>
           <% if user_signed_in? %>
