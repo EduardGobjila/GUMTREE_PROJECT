@@ -24,28 +24,18 @@
 
     <div class="category">
 
-      <h4 style="margin-left:50px;">Search by location:</h4>
+      <h4 style="margin-left:50px;">Items near you:</h4>
       <form action = "/items">
-      <p style="margin-left:15px;">Within <label style="display: inline-block"><input type= "number" name="sort_location" id="number-box"> km <input type="submit" value="Submit"></label></p>
+      <p style="margin-left:50px;">Within <label style="display: inline-block"><input type= "number" name="sort_location" id="number-box"> km <button name="button" type="submit" class="btn btn-flat">
+          <i class="fa-solid fa-location-dot"></i>
+        </button></label></p>
 
       </form>
 
-        <%= simple_form_for :search, url: items_path, method: :get do |f| %>
-      <div style="margin-left:50px; margin-top:10px; margin-bottom:10px; width:80%;" class="search-form-control form-group">
-        <%= text_field_tag :location,
-        params[:location],
-        class: "form-control",
-        placeholder: "Postcode"
-        %>
-
-        <button name="button" type="submit" class="btn btn-flat">
-          <i class="fas fa-search"></i>
-        </button>
-      </div>
-    <% end %>
 
 
-      <h4 style="margin-left:50px;">Search by category:</h4>
+
+      <h4 style="margin-left:50px;">Filter by category:</h4>
       <% @categories = Item::CATEGORIES %>
         <% @categories.each do |category| %>
           <%= link_to category, items_path(category: category), class: 'btn btn-success text-white category-button', style: 'padding-bottom: 25px; font-size: smaller; vertical-align: text-bottom; width: 80%; height: 4%; margin: 2px;  background-color: #0d475c !important; margin-left: 50px' %> <br>
