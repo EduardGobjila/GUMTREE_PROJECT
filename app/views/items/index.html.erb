@@ -24,7 +24,7 @@
 
     <div class="category">
 
-      <h4 style="margin-left:25px;">Search by location:</h4>
+      <h4 style="margin-left:50px;">Search by location:</h4>
       <form action = "/items">
       <p style="margin-left:50px;">Within <input type= "number" name="sort-location" id="number-box"> km of</p>
 
@@ -46,10 +46,10 @@
     <% end %>
 
 
-      <h4 style="margin-left:25px;">Search by category:</h4>
+      <h4 style="margin-left:50px;">Search by category:</h4>
       <% @categories = Item::CATEGORIES %>
         <% @categories.each do |category| %>
-          <%= link_to category, items_path(category: category), class: 'btn btn-success text-white category-button', style: 'vertical-align: text-bottom; width: 80%; height: 4%; margin: 2px;  background-color: #0d475c !important; margin-left: 50px' %> <br>
+          <%= link_to category, items_path(category: category), class: 'btn btn-success text-white category-button', style: 'padding-bottom: 25px; font-size: smaller; vertical-align: text-bottom; width: 80%; height: 4%; margin: 2px;  background-color: #0d475c !important; margin-left: 50px' %> <br>
         <% end %>
 
     </div>
@@ -67,7 +67,8 @@
 
             <div class="card-content">
               <p><strong><%= item.name %></strong></p>
-              <p><strong>£<%= item.price %></strong></p>
+              <p><strong>£<%= '%.2f' % item.price %></strong></p>
+
             </div>
           </div>
         <% end %>
