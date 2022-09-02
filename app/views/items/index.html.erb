@@ -55,8 +55,12 @@
 
 
             <div class="card-content">
-              <p><strong><%= item.name %></strong></p>
-              <p><strong>£<%= '%.2f' % item.price %></strong></p>
+              <p><strong><%= item.name%></strong></p>
+              <div>
+                <p><strong>£<%= '%.2f' % item.price %></strong></p>
+                <p><strong><%= item.location.upcase %></strong> </p>
+              </div>
+
 
             </div>
           </div>
